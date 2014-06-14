@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class Room {
     private boolean[] seat;
-    private int roomNo;
+    private int id;
 
     public int countSeat(){
         if (seat == null)
@@ -41,12 +41,12 @@ public class Room {
             this.seat[b] = seat[b];
         }
     }
-    public int getRoomNo() {
-            return roomNo;
+    public int getId() {
+            return this.id;
     }
     
-    public void setRoomNo(int roomNo) {
-            this.roomNo = roomNo;
+    public void setId(int roomNo) {
+            this.id = roomNo;
     }
     
     public int findAvailableSeat(){

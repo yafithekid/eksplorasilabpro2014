@@ -8,5 +8,6 @@
     <c:forEach items="${model.products}" var="prod">
       <c:out value="${prod.description}"/> <i>$<c:out value="${prod.price}"/></i><br><br>
     </c:forEach>
+    <c:out value="${model.movie.getTitle()}"/>
   </body>
 </html>

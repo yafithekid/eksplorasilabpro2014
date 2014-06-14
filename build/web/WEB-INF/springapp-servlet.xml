@@ -10,21 +10,21 @@
       <property name="suffix" value=".jsp"></property>        
   </bean>
   
-  <bean id="movie_1" class="springapp.domain.Movie">
+<!--  <bean id="movie_1" class="springapp.domain.Movie">
       <property name="title" value="The Oculus"></property>
-      <property name="movieLength" value="2"></property>
+      <property name="length" value="2"></property>
   </bean>
   <bean id="movie_2" class="springapp.domain.Movie">
       <property name="title" value="300 : Rise of An Empire"></property>
-      <property name="movieLength" value="1"></property>
+      <property name="length" value="1"></property>
   </bean>
   <bean id="movie_3" class="springapp.domain.Movie">
       <property name="title" value="Fast and Furious 6"></property>
-      <property name="movieLength" value="1"></property>
+      <property name="length" value="1"></property>
   </bean>
   <bean id="movie_4" class="springapp.domain.Movie">
       <property name="title" value="Sponge Bob Square Pants"></property>
-      <property name="movieLength" value="1"></property>
+      <property name="length" value="1"></property>
   </bean>
   <bean id="gate_1" class="springapp.domain.Room">
       <property name="roomNo" value="1"></property>
@@ -59,15 +59,13 @@
     <bean id="product3" class="springapp.domain.Product">
         <property name="description" value="Chair"/>
         <property name="price" value="22.79"/>
-    </bean> 
+    </bean> -->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages"/>
     </bean> 
-    <bean name="/hello.htm" class="springapp.web.InventoryController">
-        <property name="productManager" ref="productManagerA"/>
-    </bean> 
-    <bean name="/greeting.htm" class="springapp.web.ListController">
-    </bean>
-    <bean name="/list.htm" class="springapp.web.ListController"></bean>
+    <bean name="/list.htm" class="springapp.web.ShowIndexController"></bean>
     <bean name="/booking.htm" class="springapp.web.BookingController"></bean>
+    <bean name="/movie/index.htm" class="springapp.web.MovieIndexController"></bean>
+    <bean name="/show/index.htm" class="springapp.web.ShowIndexController"></bean>
+    <bean name="/show/create.htm" class="springapp.web.ShowCreateController"></bean>
 </beans>

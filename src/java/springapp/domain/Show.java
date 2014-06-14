@@ -6,19 +6,52 @@
 
 package springapp.domain;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import springapp.db.DBConnector;
 
 public class Show {
     private Movie movie;
     private Room room;
     private int timeStart;
     private int price;
+    private int id;
+    private static String tablename = "show";
 
+    public Show(){
+        this.movie = new Movie();
+        this.room = new Room();
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public Movie getMovie() {
             return movie;
     }
+    public int getMovieId(){
+        return this.movie.getId();
+    }
+    public String getMovieTitle(){
+        return this.movie.getTitle();
+    }
+    public int getRoomId(){
+        return this.room.getId();
+    }
     public void setMovie(Movie movie) {
             this.movie = movie;
+    }
+    public void setMovieId(int id){
+        this.movie.setId(id);
+    }
+    public void setRoomId(int id){
+        this.room.setId(id);
     }
     public Room getRoom() {
             return room;
@@ -67,5 +100,39 @@ public class Show {
     }
     public int findAvailableSeat(){
         return room.findAvailableSeat();
+    }
+    
+    public boolean insert(){
+        try {
+            Statement st = DBConnector.con.createStatement();
+            st.execute("INSERT INTO `"+Show.tablename+"`(movie_id,room_id,time) VALUES('"+this.getMovieId()+"','"+this.getRoomId()+"','"+this.getTimeStart()+"')");
+            return true;
+        } catch (SQLException e){
+            return false;
+        }
+    }
+    
+    public ArrayList<Show> findAllBySql(String query){
+        try {
+            Statement st = DBConnector.con.createStatement();
+            
+            ArrayList<Show> shows = new ArrayList<>();
+            ResultSet result = st.executeQuery(query);
+
+            while (result.next()){
+                result = st.getResultSet();
+                Show show = new Show();
+                show.setId(result.getInt("id"));
+                show.setMovieId(result.getInt("movie_id"));
+                show.setRoomId(result.getInt("room_id"));
+                show.setTimeStart(result.getInt("time"));
+                show.movie = show.movie.findBySql("SELECT * FROM `movie` WHERE `id`="+this.getMovieId());
+                shows.add(show);
+            }
+            return shows;
+        } catch (SQLException e){
+            return null;
+        }
+        
     }
 }
