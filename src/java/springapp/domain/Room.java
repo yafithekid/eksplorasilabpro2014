@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 public class Room {
+    public static final int NSEAT = 100;
     private boolean[] seat;
     private int id;
 

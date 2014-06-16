@@ -1,7 +1,9 @@
 package springapp.domain;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import springapp.db.DBConnector;
 
 public class Ticket {
@@ -10,6 +12,9 @@ public class Ticket {
     private int ticketNo;
     private static String tablename = "ticket";
     
+    public Ticket(){
+        show = new Show();
+    }
     public int getId() {
         return id;
     }
@@ -24,6 +29,11 @@ public class Ticket {
     public void setShow(Show show) {
         this.show = show;
     }
+    
+    public void setShowId(int show_id){
+        this.show.setId(show_id);
+    }
+    
     public int getTicketNo() {
         return ticketNo;
     }
@@ -58,5 +68,27 @@ public class Ticket {
     
     public Ticket findBySql(String query){
         throw new UnsupportedOperationException("Ticket.java : unsupported findbysql exception");
+    }
+    
+    public ArrayList<Ticket> findAllBySql(String query){
+        try {
+            Statement st = DBConnector.con.createStatement();
+            
+            ArrayList<Ticket> tickets = new ArrayList<>();
+            ResultSet result = st.executeQuery(query);
+
+            while (result.next()){
+                result = st.getResultSet();
+                Ticket ticket = new Ticket();
+                ticket.setId(result.getInt("id"));
+                ticket.setShowId(result.getInt("show_id"));
+                ticket.setTicketNo(result.getInt("ticket_no"));
+                tickets.add(ticket);
+            }
+            return tickets;
+        } catch (SQLException e){
+            return null;
+        }
+        
     }
 }

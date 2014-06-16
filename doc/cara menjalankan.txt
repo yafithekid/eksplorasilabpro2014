@@ -1,0 +1,8 @@
+1. Install netbeans.
+2. Install MySQL.
+3. Nyalakan MySQL.
+4. import database ke MySQL.
+5. buka file src\java\springapp\db\DBConnector.java. Atur konfigurasi username, password dan nama database.
+6. Buka netbeans.
+7. Run program.
+8. Enjoy

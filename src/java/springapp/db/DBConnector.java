@@ -14,7 +14,16 @@ import java.sql.SQLException;
  * @author yafithekid
  */
 public class DBConnector {
+
+    /**
+     * Variabel untuk koneksi ke database
+     */
     public static java.sql.Connection con;
+
+    /**
+     * memulai koneksi ke MySQL. MySQL sudah harus aktif pada port 3306
+     * @throws SQLException
+     */
     public static void initConnection() throws SQLException{
         try {
             Class.forName("com.mysql.jdbc.Driver");

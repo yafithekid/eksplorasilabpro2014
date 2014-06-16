@@ -18,31 +18,60 @@ public class Movie {
     private int length;
     private static String tablename = "movie";
 
+    /**
+     * getter of movie id
+     * @return int
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * setter of movie id
+     * @param id int
+     */
     public void setId(int id) {
         this.id = id;
     }
     
+    /**
+     * getter for movie title
+     * @return String
+     */
     public String getTitle() {
         return title;
     }
     
+    /**
+     * setter for movie title
+     * @param title String
+     */
     public void setTitle(String title) {
         this.title = title;
     }
     
+    /**
+     * get movie duration
+     * @return int
+     */
     public int getLength() {
         return length;
     }
     
+    /**
+     * set movie duration
+     * @param movieLength int 
+     */
     public void setLength(int movieLength) {
         this.length = movieLength;
     }
     
-    public Movie findBySql(String query) throws SQLException{
+    /**
+     * return ORM from sql
+     * @param query the query string
+     * @return new object movie, null if not exist
+     */
+    public Movie findBySql(String query) {
         try {
             
             Statement st = DBConnector.con.createStatement();
@@ -58,6 +87,11 @@ public class Movie {
         }
     }
     
+    /**
+     * return ORM of sql
+     * @param query the query string
+     * @return ArrayList of Movie
+     */
     public ArrayList<Movie> findAllBySql(String query){
         try {
             Statement st = DBConnector.con.createStatement();
@@ -80,6 +114,10 @@ public class Movie {
         
     }
     
+    /**
+     * insert current object into sql
+     * @return true if success
+     */
     public boolean insert() {
         try {
             Statement st = DBConnector.con.createStatement();
@@ -89,6 +127,11 @@ public class Movie {
             return false;
         }
     }
+
+    /**
+     * Unsupported
+     * @return
+     */
     public boolean save(){
         Statement st;
         throw new UnsupportedOperationException("Movie.java : save not supported");
@@ -100,6 +143,11 @@ public class Movie {
 //        }
         //st.execute("UPDATE `"++"` SET title='',length=''")
     }
+
+    /**
+     * return new model
+     * @return Movie
+     */
     public static Movie model(){
         return new Movie();
     }

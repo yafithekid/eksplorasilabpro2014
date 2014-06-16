@@ -8,7 +8,6 @@
         <title>JSP Page</title>
     </head>
     <div class="container">
-        <div class="col-xs-4"></div><div class="col-xs-4">
     <form action="../show/create.htm" method="post">
         <input type='hidden' name='form-submit' value='1'>
         <h5>Film</h5>
@@ -27,6 +26,5 @@
         </select>
         <button type='submit' class='btn btn-primary'>Simpan</button>
     </form>
-        </div><div class="col-xs-4"></div>
     </div>
 </html>

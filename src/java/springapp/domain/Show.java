@@ -62,6 +62,15 @@ public class Show {
     public int getTimeStart() {
             return timeStart;
     }
+    public String getTimeStartFormatted(){
+        int h,m,s;
+        s = this.getTimeStart();
+        h = s/3600;
+        s %= 3600;
+        m = s/60;
+        s %= 60;
+        return h+":"+m;
+    }
     public void setTimeStart(int timeStart) {
             this.timeStart = timeStart;
     }
@@ -112,6 +121,23 @@ public class Show {
         }
     }
     
+    public Show findBySql(String query){
+        try {
+            Statement st = DBConnector.con.createStatement();
+            ResultSet result = st.executeQuery(query);
+            result.next();
+            
+            result = st.getResultSet();
+            Show show = new Show();
+            show.setId(result.getInt("id"));
+            show.setMovieId(result.getInt("movie_id"));
+            show.setRoomId(result.getInt("room_id"));
+            show.setTimeStart(result.getInt("time"));
+            return show;
+        } catch (SQLException e){
+            return null;
+        }
+    }
     public ArrayList<Show> findAllBySql(String query){
         try {
             Statement st = DBConnector.con.createStatement();

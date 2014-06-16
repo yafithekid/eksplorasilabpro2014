@@ -5,16 +5,40 @@
   <head><title><fmt:message key="title"/></title></head>
   <body>
       <div class="container">
-          <table class="table table-striped">
-              <tr><th>No</th><th>Judul</th><th>Durasi</th></tr>
+          <div class="panel-body">
               <c:forEach items="${model.shows}" var="show">
-                  <tr>
-                  <td><c:out value="${show.getId()}"/></td>
-                  <td><c:out value="${show.getMovieTitle()}"/></td>
-                  <td><c:out value="${show.getTimeStart()}"/></td>
-                  </tr>
-              </c:forEach>
-          </table>
+              <div class="panel panel-default centered" style="position: relative;margin-left: auto; margin-right: auto; width: 80%;">
+                    <div class="panel-heading">
+                        <div class="row">
+			<div class="col-md-4">
+                            <center><B><c:out value="${show.getMovieTitle()}"/></B></center> 					
+			</div>
+                        <div class="col-md-4">
+                            <center><B><c:out value="Gate ${show.room.getId()}"/></B></center> 					
+			</div>
+                        <div class="col-md-4">
+                            <center><B>${show.getTimeStartFormatted()} WIB</B></center>
+                        </div>
+			</div>
+                    </div>
+                    <div class="panel-body">
+                        <img src="../../img/${show.getMovieId()}.jpg" alt="hello" width="120" height="200">
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <a href='../ticket/book.htm?show_id=<c:out value="${show.getId()}"/>'>Pesan</a>					
+                            </div>
+                            <div class="col-md-4">
+                                <B></B> 					
+                            </div>
+			</div>
+                    </div>
+		</div>
+            </div>
+            </c:forEach>
+
       
       </div>
   </body>
