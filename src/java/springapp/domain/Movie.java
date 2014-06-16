@@ -75,7 +75,7 @@ public class Movie {
         try {
             
             Statement st = DBConnector.con.createStatement();
-            ResultSet result = st.executeQuery("SELECT * FROM `movie` LIMIT 1");
+            ResultSet result = st.executeQuery(query);
             result.next();
             Movie movie = new Movie();
             movie.setId(result.getInt("id"));

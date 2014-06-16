@@ -5,7 +5,6 @@
   <head><title><fmt:message key="title"/></title></head>
   <body>
       <div class="container">
-          <div class="panel-body">
               <c:forEach items="${model.shows}" var="show">
               <div class="panel panel-default centered" style="position: relative;margin-left: auto; margin-right: auto; width: 80%;">
                     <div class="panel-heading">
@@ -39,11 +38,8 @@
 			</div>
                     </div>
 		</div>
-            </div>
             </c:forEach>
-
-      
-      </div>
+          </div>
   </body>
 </html>
 <%@ include file="/WEB-INF/jsp/layout/footer.jsp" %> 

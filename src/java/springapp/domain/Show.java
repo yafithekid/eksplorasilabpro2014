@@ -152,7 +152,8 @@ public class Show {
                 show.setMovieId(result.getInt("movie_id"));
                 show.setRoomId(result.getInt("room_id"));
                 show.setTimeStart(result.getInt("time"));
-                show.movie = show.movie.findBySql("SELECT * FROM `movie` WHERE `id`="+this.getMovieId());
+                Movie movie = new Movie();
+                show.movie = movie.findBySql("SELECT * FROM `movie` WHERE `id`="+show.getMovieId());
                 shows.add(show);
             }
             return shows;
