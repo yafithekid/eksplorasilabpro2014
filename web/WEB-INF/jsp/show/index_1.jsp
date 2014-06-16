@@ -1,13 +1,11 @@
+
 <%@ include file="/WEB-INF/jsp/include.jsp" %> 
 <%@ include file="/WEB-INF/jsp/layout/header.jsp" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
   <head><title><fmt:message key="title"/></title></head>
   <body>
-      
-      
       <div class="container">
-          <div class="panel-body">
               <c:forEach items="${model.shows}" var="show">
               <div class="panel panel-default centered" style="position: relative;margin-left: auto; margin-right: auto; width: 80%;">
                     <div class="panel-heading">
@@ -23,14 +21,16 @@
                         </div>
 			</div>
                     </div>
-                    <div class="panel-body" style="position: relative;margin: auto;width: 90%; " >
-                        <center><img src="../img/${show.getMovieId()}.jpg" alt="hello" width="120" height="200"></center>
-                    </div>
+                        <div class="panel-body"><center>
+                        <img src="../../../springapp/img/${show.getMovieId()}.jpg" alt="hello" width="120" height="150">
+                        </center>
+                        </div>
                     <div class="panel-footer">
                         <div class="row">
                             <div class="col-md-4"></div>
-                            <div class="col-md-4"><center>
-                                <a href='../ticket/book.htm?show_id=<c:out value="${show.getId()}"/>'>Pesan</a>	
+                            <div class="col-md-4">
+                                <center>
+                                <a href='../ticket/book.htm?show_id=<c:out value="${show.getId()}"/>'>Pesan</a>					
                                 </center>
                             </div>
                             <div class="col-md-4">
@@ -40,9 +40,7 @@
                     </div>
 		</div>
             </c:forEach>
-            </div>
-      
-      </div>
+          </div>
   </body>
 </html>
 <%@ include file="/WEB-INF/jsp/layout/footer.jsp" %> 

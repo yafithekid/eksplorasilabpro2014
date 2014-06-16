@@ -10,13 +10,7 @@
 %>
 <html>
     <div class="container">
-        <div style="position: relative;margin: auto;width: 85%;">
-	<div class="panel panel-default">
-        <div class="panel-heading">
-        <center><h3>Layar</h3></center>
-        </div>
-        <div class="panel-body">
-
+        <center><h3>LAYAR</h3></center>
         <form action="../ticket/book.htm" method="post">
             <input type="hidden" name="form-submit" value=""/>
             <input type="hidden" name="show_id" value="<c:out value="${model.showId}"/>"/>
@@ -25,7 +19,7 @@
                         if (i % 10 == 0)
                             out.print("<tr>");
                     %>
-                    <td style="text-align: center;"> 
+                    <td>
                     <input name="ticket_no_<% out.print(i); %>" type="checkbox" value="<% out.print(i); %>" <% if (room.getSeat(i)) out.print("disabled"); %> />
                     <% if (!room.getSeat(i))out.println("<h5>"+(i+1)+"</h5>"); else out.println("<h5>-</h5>"); %>
                     </td>
@@ -40,9 +34,6 @@
             </table>
             <center><button type="submit" class="btn btn-success">Pesan Tiket</button></center>
         </form>
-        </div>
-        </div>
-        </div>
     </div>
 </html>
 <%@ include file="/WEB-INF/jsp/layout/footer.jsp" %> 

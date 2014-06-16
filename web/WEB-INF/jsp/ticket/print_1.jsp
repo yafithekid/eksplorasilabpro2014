@@ -17,9 +17,7 @@
 
 <div class="col-xs-4">
 <% for (Ticket ticket: tickets) { %>
-<div class="panel panel-default">
 <center><h3>LAB PROGRAMMING</h3></center>
-<div style="position: relative;margin: auto;width: 85%;">
 <h4><% out.print(movie.getTitle()); %></h4>
 Waktu<br>
 <h4><% out.print(show.getTimeStartFormatted()); %></h4>
@@ -28,7 +26,6 @@ Kursi<br>
 Gate<br>
 <h4><% out.print(show.getRoomId()); %></h4>
 <hr>
-</div></div>
 <% } %>
 </div>
 <div class="clearfix"></div>
