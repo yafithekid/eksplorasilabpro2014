@@ -4,21 +4,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Reservasi Tiket Bioskop</title>
     </head>
     <div class="container">
-    <form action="../show/create.htm" method="post">
-        <input type='hidden' name='form-submit' value='1'>
-        <h5>Judul</h5>
-        <input type='text' name='time' class='form-control'/>
-        <h5>Durasi</h5>
-        <select class="dropdown" name="room_id">
-        <% for(int i = 1; i <= 5; i++) { %>
-        <option value='<%out.print(i);%>'><%out.print(i);%></option>
-        <% } %>
-        </select>
-        <button type='submit' class='btn btn-primary'>Simpan</button>
-    </form>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            <form action="../movie/create.htm" method="post">
+            <input type='hidden' name='form-submit' value='1'>
+            <h5>Judul</h5>
+            <input type='text' name='title' class='form-control'/>
+            <h5>Durasi</h5>
+            <input type="number" name="length" class="form-control"/>
+            <button type='submit' class='btn btn-primary'>Simpan</button>
+        </form>
+        </div>
+        <div class="col-xs-4"></div>
+        
+        
     </div>
 </html>
+<%@ include file="/WEB-INF/jsp/layout/footer.jsp" %> 

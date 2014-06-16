@@ -65,6 +65,7 @@
     </bean> 
     <bean name="/list.htm" class="springapp.web.ShowIndexController"></bean>
     <bean name="/movie/index.htm" class="springapp.web.MovieIndexController"></bean>
+    <bean name="/movie/create.htm" class="springapp.web.MovieCreateController"></bean>
     <bean name="/show/index.htm" class="springapp.web.ShowIndexController"></bean>
     <bean name="/show/create.htm" class="springapp.web.ShowCreateController"></bean>
     <bean name="/ticket/book.htm" class="springapp.web.TicketBookController"></bean>

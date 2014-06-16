@@ -21,14 +21,17 @@
                         </div>
 			</div>
                     </div>
-                    <div class="panel-body">
-                        <img src="../../img/${show.getMovieId()}.jpg" alt="hello" width="120" height="200">
-                    </div>
+                        <div class="panel-body"><center>
+                        <img src="../../../springapp/img/${show.getMovieId()}.jpg" alt="hello" width="120" height="150">
+                        </center>
+                        </div>
                     <div class="panel-footer">
                         <div class="row">
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
+                                <center>
                                 <a href='../ticket/book.htm?show_id=<c:out value="${show.getId()}"/>'>Pesan</a>					
+                                </center>
                             </div>
                             <div class="col-md-4">
                                 <B></B> 					
